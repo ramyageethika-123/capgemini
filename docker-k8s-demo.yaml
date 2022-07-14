@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metdata:
+  name: docker-k8s-demo-deployment
+  labels:
+    app: docker-k8s-demo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-k8s-demo
+    spec:
+      containers:
+      - name: myapp_1
+        image: ramyageethika/student
+        ports:
+        - containerPort: 8080
